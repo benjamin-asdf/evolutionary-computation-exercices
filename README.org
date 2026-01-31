@@ -1,0 +1,29 @@
+* Book Exercises Introduction to Evolutionary Computation, Eiben
+
+http://www.evolutionarycomputation.org/
+
+Exercises and notes from studying evolutionary computation, implemented as Clojure notebooks using [[https://scicloj.github.io/clay/][Clay]].
+
+** Notebooks
+
+- [[https://benjamin-asdf.github.io/evolutionary-computation-exercices-deploy/bjs.evolutionary_computation.index.html][Chapter 2: EC Origins]]
+
+** Usage
+
+*** Build notebooks
+
+#+begin_src bash
+clojure -M build.clj
+#+end_src
+
+*** Deploy to GitHub Pages
+
+#+begin_src bash
+./deploy.sh
+#+end_src
+
+** Dependencies
+
+- Clojure
+- [[https://github.com/scicloj/clay][Clay]] - notebook rendering
+- [[https://github.com/scicloj/kindly][Kindly]] - visualization kinds
