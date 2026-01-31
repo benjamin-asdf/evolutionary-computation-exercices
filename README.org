@@ -1,4 +1,6 @@
-* Book Exercises Introduction to Evolutionary Computation, Eiben
+* Book Exercises
+
+*Introduction to Evolutionary Computation 2nd edition*, Eiben + Smith 2015
 
 http://www.evolutionarycomputation.org/
 
