@@ -27,7 +27,7 @@
 ;;
 
 ;;
-;; **Abstract replicator theory definition:**: Evolution is the non-random selection of random replicators.
+;; **Abstract replicator theory definition:**: Evolution is the non-random selection of random variations of replicators.
 ;;
 
 ;; **Non-biological usage:**
