@@ -8,7 +8,7 @@ Exercises and notes from studying evolutionary computation, implemented as Cloju
 
 ** Notebooks
 
-- [[https://benjamin-asdf.github.io/evolutionary-computation-exercices-deploy/bjs.evolutionary_computation.index.html][Chapter 2: EC Origins]]
+- [[https://benjamin-asdf.github.io/evolutionary-computation-exercices/bjs.evolutionary_computation.index.html][Chapter 2: EC Origins]]
 
 ** Usage
 
