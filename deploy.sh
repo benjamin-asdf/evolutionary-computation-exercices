@@ -5,11 +5,10 @@ set -e
 echo "Building notebooks..."
 clojure -M build.clj
 
-# Navigate to docs directory
-cd docs
+echo "deploy to github"
 
 # Add all files and commit
-git add -A
+git add -- docs/*
 git commit -m "Deploy $(date +%Y-%m-%d_%H:%M:%S)" || echo "Nothing to commit"
 
 # Push to main branch
