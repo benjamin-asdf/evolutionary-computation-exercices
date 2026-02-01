@@ -57,13 +57,13 @@
 ;;
 
 (defn quality
-  "Returns a real value that is an error meassurement of a candidate solution given a problem.
+  "Returns a real value that is an error value of a candidate solution given a problem.
   A lower value means less error, and higher quality."
   [individual problem])
 
 ;; 'The other way around' refers to the fact that in computational problem solving, the quality is usually an error to be minimized.
 ;; The algorithm is descending into the valleys rather than climbing the mountains.
-;; I imagine a ball that rolls down the slopes. Dito in dynamical systems theory; They speak of 'falling into' an attractor state of a system.
+;; I imagine a ball that rolls down the slopes. Like in dynamical systems theory, 'falling into' an attractor state of a system.
 ;;
 ;; Obviously this sign reversal is trivial and does not affect the structure of the algorithm.
 ;;
@@ -85,7 +85,7 @@
 
 ;; ------------------------------------------
 
-;; I don't agree with this. For me, fitness in biology is an objective property of the replicator. In principle, it does not require a meassurment to know a fitness.
+;; I don't agree with this. For me, fitness in biology is an objective property of the replicator. In principle, it does not require a measurement to know a fitness.
 
 ;; ##  4.Find out for how long have humans have used the following as tools: Evolution, The wheel, Fire.
 
