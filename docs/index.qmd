@@ -1,0 +1,6 @@
+---
+format:
+  html: {toc: false}
+
+---
+# Evolutionary Computation Exercises

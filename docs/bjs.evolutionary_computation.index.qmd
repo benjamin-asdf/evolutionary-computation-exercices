@@ -1,0 +1,59 @@
+
+---
+format:
+  html: {toc: true, toc-depth: 4, theme: cosmo, output-file: bjs.evolutionary_computation.index.html}
+code-block-background: true
+
+---
+<style></style><style>.printedClojure .sourceCode {
+  background-color: transparent;
+  border-style: none;
+}
+</style><style>.clay-limit-image-width .clay-image {max-width: 100%}
+.clay-side-by-side .sourceCode {margin: 0}
+.clay-side-by-side {margin: 1em 0}
+</style>
+<script src="bjs.evolutionary_computation.index_files/md-default0.js" type="text/javascript"></script><script src="bjs.evolutionary_computation.index_files/md-default1.js" type="text/javascript"></script>
+
+::: {.sourceClojure}
+```clojure
+(ns bjs.evolutionary-computation.index
+  (:require [scicloj.kindly.v4.kind :as kind]))
+```
+:::
+
+
+
+# Evolutionary Computation
+
+Exercises and notes from studying evolutionary computation.
+
+
+## Chapters
+
+- [Chapter 2: EC Origins](bjs.evolutionary_computation.chapter_2_origins.html)
+
+
+::: {.sourceClojure}
+```clojure
+(comment
+  (require '[scicloj.clay.v2.api :as clay])
+  ;; Build index
+  (clay/make! {:source-path "src/bjs/evolutionary_computation/index.clj"})
+  ;; Build all notebooks
+  (clay/make! {:source-path ["src/bjs/evolutionary_computation/index.clj"
+                             "src/bjs/evolutionary_computation/chapter_2_origins.clj"]}))
+```
+:::
+
+
+
+```{=html}
+<div style="background-color:grey;height:2px;width:100%;"></div>
+```
+
+
+
+```{=html}
+<div><pre><small><small>source: src/bjs/evolutionary_computation/index.clj</small></small></pre></div>
+```

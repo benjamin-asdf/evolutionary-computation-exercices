@@ -1,0 +1,82 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Evolutionary Computation Exercises",
+    "section": "",
+    "text": "1 Evolutionary Computation Exercises",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Evolutionary Computation Exercises</span>"
+    ]
+  },
+  {
+    "objectID": "bjs.evolutionary_computation.index.html",
+    "href": "bjs.evolutionary_computation.index.html",
+    "title": "2  Evolutionary Computation",
+    "section": "",
+    "text": "2.1 Chapters\nExercises and notes from studying evolutionary computation.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Evolutionary Computation</span>"
+    ]
+  },
+  {
+    "objectID": "bjs.evolutionary_computation.index.html#chapters",
+    "href": "bjs.evolutionary_computation.index.html#chapters",
+    "title": "2  Evolutionary Computation",
+    "section": "",
+    "text": "Chapter 2: EC Origins\n\n\n(comment\n  (require '[scicloj.clay.v2.api :as clay])\n  ;; Build index\n  (clay/make! {:source-path \"src/bjs/evolutionary_computation/index.clj\"})\n  ;; Build all notebooks\n  (clay/make! {:source-path [\"src/bjs/evolutionary_computation/index.clj\"\n                             \"src/bjs/evolutionary_computation/chapter_2_origins.clj\"]}))\n\n\nsource: src/bjs/evolutionary_computation/index.clj",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Evolutionary Computation</span>"
+    ]
+  },
+  {
+    "objectID": "bjs.evolutionary_computation.chapter_2_origins.html",
+    "href": "bjs.evolutionary_computation.chapter_2_origins.html",
+    "title": "3  Exercises for Chapter Two: EC Origins",
+    "section": "",
+    "text": "3.1 1. Find out when hominids are first thought to have appeared, and estimate how many generations it has taken for you to evolve.\nhttps://en.wikipedia.org/wiki/Australopithecine\nHominini / Australopithecus earliest roughly 5.5 million years ago.\ntypically used in population genetics etc. for homo.\n~ Answer in thousands of generations:",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exercises for Chapter Two: EC Origins</span>"
+    ]
+  },
+  {
+    "objectID": "bjs.evolutionary_computation.chapter_2_origins.html#find-out-when-hominids-are-first-thought-to-have-appeared-and-estimate-how-many-generations-it-has-taken-for-you-to-evolve.",
+    "href": "bjs.evolutionary_computation.chapter_2_origins.html#find-out-when-hominids-are-first-thought-to-have-appeared-and-estimate-how-many-generations-it-has-taken-for-you-to-evolve.",
+    "title": "3  Exercises for Chapter Two: EC Origins",
+    "section": "",
+    "text": "(def hominins-age 5.5e6)\n\n\n\n(def homo-generation-time 25)\n\n\n\n(/ hominins-age homo-generation-time 1e4)\n\n\n22.0",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exercises for Chapter Two: EC Origins</span>"
+    ]
+  },
+  {
+    "objectID": "bjs.evolutionary_computation.chapter_2_origins.html#find-out-the-biological-definition-of-evolution-and-give-at-least-one-example-of-how-the-term-is-frequently-used-in-nonbiological-settings.",
+    "href": "bjs.evolutionary_computation.chapter_2_origins.html#find-out-the-biological-definition-of-evolution-and-give-at-least-one-example-of-how-the-term-is-frequently-used-in-nonbiological-settings.",
+    "title": "3  Exercises for Chapter Two: EC Origins",
+    "section": "3.2 2. Find out the biological definition of evolution and give at least one example of how the term is frequently used in nonbiological settings.",
+    "text": "3.2 2. Find out the biological definition of evolution and give at least one example of how the term is frequently used in nonbiological settings.\nBiological definition:: Evolution is the change in the heritable characteristics of biological populations over successive generations.\n\n(kind/image {:src \"https://upload.wikimedia.org/wikipedia/commons/4/43/Darwin_Tree_1837.png\"})\n\n\n\n\nThe entity described by evolution is a tree of life. There exists one tree of life per origin of life event.\nAbstract replicator theory definition:: Evolution is the non-random selection of random variations of replicators.\nNon-biological usage:\n\nCosmological evolution: The history of the physical universe across time. I.e. starting with the big bang, the description of successive phases with key physical attributes, ending with the end of the universe (perhaps ‘Big Crunch’, ‘Big Freeze’, ‘Big Rip’, …).\n“The evolution of programming languages” — describes gradual change/development over time, but lacks key biological mechanisms (no random mutation, no differential reproduction, no inheritance).",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exercises for Chapter Two: EC Origins</span>"
+    ]
+  },
+  {
+    "objectID": "bjs.evolutionary_computation.chapter_2_origins.html#table-2.1-suggests-a-close-analogy-between-the-notion-of-fitness-in-natural-evolutionary-systems-and-a-solution-quality-measure-in-evolutionary-problem-solving.-however-the-two-work-other-way-around-from-the-perspective-of-the-number-of-offspring.-discuss.",
+    "href": "bjs.evolutionary_computation.chapter_2_origins.html#table-2.1-suggests-a-close-analogy-between-the-notion-of-fitness-in-natural-evolutionary-systems-and-a-solution-quality-measure-in-evolutionary-problem-solving.-however-the-two-work-other-way-around-from-the-perspective-of-the-number-of-offspring.-discuss.",
+    "title": "3  Exercises for Chapter Two: EC Origins",
+    "section": "3.3 3. Table 2.1 suggests a close analogy between the notion of fitness in natural evolutionary systems and a solution quality measure in (evolutionary) problem solving. However, the two work `other way around’ from the perspective of the number of offspring. Discuss.",
+    "text": "3.3 3. Table 2.1 suggests a close analogy between the notion of fitness in natural evolutionary systems and a solution quality measure in (evolutionary) problem solving. However, the two work `other way around’ from the perspective of the number of offspring. Discuss.\nI would say in biological evolution, fitness is the ‘causal efficacy’ (german Wirkunsmächtigkeit) of a replicator to replicate, given an environment.\n\n(defn fitness\n  \"Returns a real value describing the causal efficacy of a replicator to replicate given an environment.\n  A higher value means higher efficacy.\n  \"\n  [individual environment])\n\nFitness is easily understood as the height of a fitness landscape (Wrights adaptive landscape), where a higher value corresponds to higher reproductive success. A branch of the evolutionary process is ‘climbing up the mountains’ of the landscape. This is the mountain which appears in the title of Dawkins’ “Climbing Mount Improbable” (1996).\nIn evolutionary problem solving, a quality measure for a candidate solution, given a problem is used to determine the number of offspring in successive generations of solutions.\n\n(defn quality\n  \"Returns a real value that is an error value of a candidate solution given a problem.\n  A lower value means less error, and higher quality.\"\n  [individual problem])\n\n‘The other way around’ refers to the fact that in computational problem solving, the quality is usually an error to be minimized. The algorithm is descending into the valleys rather than climbing the mountains. I imagine a ball that rolls down the slopes. Like in dynamical systems theory, ‘falling into’ an attractor state of a system.\nObviously this sign reversal is trivial and does not affect the structure of the algorithm.\n\nClaude thinks the question is asking about causal direction:\n\n\n\n\n\n\n\nBiology\nEC\n\n\n\n\nFitness → offspring count\nOffspring count ← quality\n\n\nCausality is emergent\nCausality is imposed\n\n\n\nIn biology, having more offspring is what defines higher fitness (measurement after the fact). In EC, we decide how many offspring to assign based on our quality measure (prescription).\n\nBiology: offspring count is the dependent variable (effect)\nEC: offspring count is the independent variable (we control it)\n\n\nI don’t agree with this. For me, fitness in biology is an objective property of the replicator. In principle, it does not require a measurement to know a fitness.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exercises for Chapter Two: EC Origins</span>"
+    ]
+  },
+  {
+    "objectID": "bjs.evolutionary_computation.chapter_2_origins.html#find-out-for-how-long-have-humans-have-used-the-following-as-tools-evolution-the-wheel-fire.",
+    "href": "bjs.evolutionary_computation.chapter_2_origins.html#find-out-for-how-long-have-humans-have-used-the-following-as-tools-evolution-the-wheel-fire.",
+    "title": "3  Exercises for Chapter Two: EC Origins",
+    "section": "3.4 4.Find out for how long have humans have used the following as tools: Evolution, The wheel, Fire.",
+    "text": "3.4 4.Find out for how long have humans have used the following as tools: Evolution, The wheel, Fire.\nEvolution (as a tool): - Selective breeding/domestication: ~10,000-15,000 years (dogs ~15,000-30,000 years ago, agriculture ~10,000 years ago) - Evolutionary computation: ~80 years (1940s-1960s saw early evolutionary algorithms)\nThe Wheel: - ~5,500-6,000 years (first as potter’s wheel ~3500 BCE, then for transport) - Oldest known wheel: Ljubljana marshes, Slovenia, ~5,200 years old\nFire: - Use of fire (carrying embers from wildfires): ~1-2 million years (Homo erectus) - Controlled fire-making: ~400,000 years (recent 2025 discovery in Britain - early Neanderthals using pyrite + flint) - Cooking: ~780,000 years (Daughters of Jacob Bridge, Israel)\nRanking by age: Fire &gt;&gt; Evolution (breeding) &gt;&gt; Wheel &gt;&gt; Evolution (computation)\nSources: - https://en.wikipedia.org/wiki/Control_of_fire_by_early_humans - https://www.npr.org/2025/12/11/nx-s1-5640109/early-humans-fire-making-oldest-discovery-archaeology - https://en.wikipedia.org/wiki/Selective_breeding - https://en.wikipedia.org/wiki/Wheel\n\n(comment\n  (require '[scicloj.clay.v2.api :as clay])\n  (clay/make! {:source-path \"src/bjs/evolutionary_computation/chapter_2_origins.clj\"}))\n\n\nsource: src/bjs/evolutionary_computation/chapter_2_origins.clj",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exercises for Chapter Two: EC Origins</span>"
+    ]
+  }
+]
