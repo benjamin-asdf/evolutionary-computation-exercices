@@ -3,7 +3,7 @@ set -e
 
 # Build the notebooks first
 echo "Building notebooks..."
-clojure -M build.clj
+clojure -X:build
 
 echo "deploy to github"
 
