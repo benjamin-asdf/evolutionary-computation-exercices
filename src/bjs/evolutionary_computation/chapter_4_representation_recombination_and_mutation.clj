@@ -104,8 +104,9 @@
 
 ;; ### Answer:
 ;;
-;; The problem only makes sense if the patient appointments take varying amount of time.
-;; Then, it is very similiar to a knapsack problem with value = constantly 1.
-;;
 ;; This is an ordering problem and a permutation representing the ordering is the most suitable.
+;;
+;; The problem only makes sense if the patient appointments take varying amount of time.
+;; Then, it is very similiar to a knapsack problem with value being constantly 1.
+;;
 ;;
