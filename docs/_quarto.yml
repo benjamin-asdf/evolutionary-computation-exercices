@@ -3,5 +3,5 @@ format:
   revealjs: {theme: solarized, navigation-mode: vertical, transition: slide, background-transition: fade, incremental: true}
 project: {type: book}
 book:
-  chapters: [index.qmd, bjs.evolutionary_computation.index.qmd, bjs.evolutionary_computation.chapter_2_origins.qmd]
+  chapters: [index.qmd, bjs.evolutionary_computation.index.qmd, bjs.evolutionary_computation.chapter_2_origins.qmd, bjs.evolutionary_computation.chapter_3_what_is_an_ea.qmd, bjs.evolutionary_computation.chapter_4_representation_recombination_and_mutation.qmd]
   title: Evolutionary Computation Exercises

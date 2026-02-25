@@ -14,17 +14,7 @@
     "href": "bjs.evolutionary_computation.index.html",
     "title": "2  Evolutionary Computation",
     "section": "",
-    "text": "2.1 Chapters\nExercises and notes from studying evolutionary computation.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Evolutionary Computation</span>"
-    ]
-  },
-  {
-    "objectID": "bjs.evolutionary_computation.index.html#chapters",
-    "href": "bjs.evolutionary_computation.index.html#chapters",
-    "title": "2  Evolutionary Computation",
-    "section": "",
-    "text": "Chapter 2: EC Origins\n\n\n(comment\n  (require '[scicloj.clay.v2.api :as clay])\n  ;; Build index\n  (clay/make! {:source-path \"src/bjs/evolutionary_computation/index.clj\"})\n  ;; Build all notebooks\n  (clay/make! {:source-path [\"src/bjs/evolutionary_computation/index.clj\"\n                             \"src/bjs/evolutionary_computation/chapter_2_origins.clj\"]}))\n\n\nsource: src/bjs/evolutionary_computation/index.clj",
+    "text": "(ns bjs.evolutionary-computation.index\n  (:require [scicloj.kindly.v4.kind :as kind]))\n\nExercises and notes from studying evolutionary computation.\n\nsource: src/bjs/evolutionary_computation/index.clj",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Evolutionary Computation</span>"
     ]
@@ -77,6 +67,116 @@
     "text": "3.4 4.Find out for how long have humans have used the following as tools: Evolution, The wheel, Fire.\nEvolution (as a tool): - Selective breeding/domestication: ~10,000-15,000 years (dogs ~15,000-30,000 years ago, agriculture ~10,000 years ago) - Evolutionary computation: ~80 years (1940s-1960s saw early evolutionary algorithms)\nThe Wheel: - ~5,500-6,000 years (first as potter’s wheel ~3500 BCE, then for transport) - Oldest known wheel: Ljubljana marshes, Slovenia, ~5,200 years old\nFire: - Use of fire (carrying embers from wildfires): ~1-2 million years (Homo erectus) - Controlled fire-making: ~400,000 years (recent 2025 discovery in Britain - early Neanderthals using pyrite + flint) - Cooking: ~780,000 years (Daughters of Jacob Bridge, Israel)\nRanking by age: Fire &gt;&gt; Evolution (breeding) &gt;&gt; Wheel &gt;&gt; Evolution (computation)\nSources: - https://en.wikipedia.org/wiki/Control_of_fire_by_early_humans - https://www.npr.org/2025/12/11/nx-s1-5640109/early-humans-fire-making-oldest-discovery-archaeology - https://en.wikipedia.org/wiki/Selective_breeding - https://en.wikipedia.org/wiki/Wheel\n\n(comment\n  (require '[scicloj.clay.v2.api :as clay])\n  (clay/make! {:source-path \"src/bjs/evolutionary_computation/chapter_2_origins.clj\"}))\n\n\nsource: src/bjs/evolutionary_computation/chapter_2_origins.clj",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exercises for Chapter Two: EC Origins</span>"
+    ]
+  },
+  {
+    "objectID": "bjs.evolutionary_computation.chapter_3_what_is_an_ea.html",
+    "href": "bjs.evolutionary_computation.chapter_3_what_is_an_ea.html",
+    "title": "4  Exercises for Chapter Three: What is an EA?",
+    "section": "",
+    "text": "4.1 1. How big is the phenotype space for the eight-queens problem?",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Exercises for Chapter Three: What is an EA?</span>"
+    ]
+  },
+  {
+    "objectID": "bjs.evolutionary_computation.chapter_3_what_is_an_ea.html#how-big-is-the-phenotype-space-for-the-eight-queens-problem",
+    "href": "bjs.evolutionary_computation.chapter_3_what_is_an_ea.html#how-big-is-the-phenotype-space-for-the-eight-queens-problem",
+    "title": "4  Exercises for Chapter Three: What is an EA?",
+    "section": "",
+    "text": "considering the phenotype space to be all possible ways to place 8 queens on a chess board.\n\n\n(def chess-board-positions (* 8 8))\n\n\n(def queens 8)\n\n\nObviously, for the first queen, there are 8x8 = 64 possible positions,\nSecond queen 64 - 1 possiblities, etc.\nThe total number is the Binomial coefficient https://en.wikipedia.org/wiki/Binomial_coefficient\n\n\n(defn binomial-coefficient [n k]\n  (if (or (&lt; k 0) (&gt; k n))\n    0\n    (let [k (min k (- n k))]\n      (loop [numerator 1\n             denominator 1\n             i 0]\n        (if (&lt; i k)\n          (recur (* numerator (- n i))\n                 (* denominator (inc i))\n                 (inc i))\n          (/ numerator denominator))))))\n\n\n(def phenotype-space-size (binomial-coefficient chess-board-positions queens))\n\n\nphenotype-space-size\n\n\n4426165368",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Exercises for Chapter Three: What is an EA?</span>"
+    ]
+  },
+  {
+    "objectID": "bjs.evolutionary_computation.chapter_3_what_is_an_ea.html#knapsack-problem---naive-vs-decoder-approach",
+    "href": "bjs.evolutionary_computation.chapter_3_what_is_an_ea.html#knapsack-problem---naive-vs-decoder-approach",
+    "title": "4  Exercises for Chapter Three: What is an EA?",
+    "section": "5.1 3. Knapsack problem - Naive vs Decoder approach",
+    "text": "5.1 3. Knapsack problem - Naive vs Decoder approach\nExplain why the order in which items are listed in the representation is unimportant for the naive approach to the knapsack problem, but makes a big difference if we use the decoder approach.\n\nProblem: - list of n items, each with a volume and value. - Capacity C of the ‘backpack’. - We need to maximize the value while not exceeding capacity.\nRepresentation (genotype0: binary string of length n, where 1 represents the item is included and 0 that it is omitted.\nNaive approach: - phenotype == genotype space, (i.e. all 2^n bit strings) - then phenotype space includes invalid solutions, those where capacity is exceeded.\nDecoder approach: - phenotype = decoder(genotype) - decoder is a function: - walk the genotype from left to right, - if putting the next item into the backpack does not exceed capacity, put it - else omit it. - G-&gt;P mapping of genotype to phenotype is many to one, because once capacity is reached, the rest of the bits don’t matter for the solution (which items are included).\nitems: A list of tuples [value, volume] capacity: knapsack C phentotype: bit string of which items are included\n\n(defn genotype-decoder\n  [capacity items phenotype]\n  (let [volumes (mapv second items)]\n    (reduce (fn [included-items-spec phenotype-bit]\n              (let [used-capacity\n                    (apply + (map #(* %1 %2) included-items-spec volumes))\n                    include? (&lt;= (+ used-capacity\n                                   (* phenotype-bit\n                                      (volumes (count\n                                                included-items-spec))))\n                                capacity)]\n                (conj included-items-spec (if include? 1 0))))\n      []\n      phenotype)))\n\n\n(genotype-decoder 5 [[1 5] [1 1] [1 1] [1 1]] [1 1 1])\n\n\n[1 0 0]\n\n\n[1 0 0]\n\n\n[1 0 0]\n\n\n(genotype-decoder 5 [[1 4] [1 1] [1 1] [1 1]] [1 1 1])\n\n\n[1 1 0]\n\n\n[1 1 0]\n\n\n[1 1 0]",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Exercises for Chapter Three: What is an EA?</span>"
+    ]
+  },
+  {
+    "objectID": "bjs.evolutionary_computation.chapter_3_what_is_an_ea.html#problem-where-eas-perform-poorly",
+    "href": "bjs.evolutionary_computation.chapter_3_what_is_an_ea.html#problem-where-eas-perform-poorly",
+    "title": "4  Exercises for Chapter Three: What is an EA?",
+    "section": "5.2 4. Problem where EAs perform poorly",
+    "text": "5.2 4. Problem where EAs perform poorly\nFind a problem where EAs would certainly perform very poorly compared to alternative approaches. Explain why you expect this to be the case.\nExample: Sorting a list of numbers\nEAs would perform terribly on sorting because:\n\nDeterministic optimal solution exists: Sorting algorithms like quicksort, mergesort achieve O(n log n) with certainty\nNo noise or uncertainty: The problem has no stochastic elements where population-based search would help\nWell-understood structure: The problem structure is fully known, no need for search/discovery\nGradient-like information available: We can measure “sortedness” precisely and fix violations directly\nMassive search space: n! permutations makes random search hopeless for large n, while divide-and-conquer is efficient\n\nSimilarly: matrix multiplication, shortest path (use Dijkstra), linear programming (use simplex), any problem with known polynomial algorithm exploiting problem structure.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Exercises for Chapter Three: What is an EA?</span>"
+    ]
+  },
+  {
+    "objectID": "bjs.evolutionary_computation.chapter_3_what_is_an_ea.html#exploration-vs-exploitation-phases",
+    "href": "bjs.evolutionary_computation.chapter_3_what_is_an_ea.html#exploration-vs-exploitation-phases",
+    "title": "4  Exercises for Chapter Three: What is an EA?",
+    "section": "5.3 5. Exploration vs Exploitation phases",
+    "text": "5.3 5. Exploration vs Exploitation phases\nConsider the beginning phase of an evolutionary search process. Is exploration or exploitation the dominant force in this stage? What about the end phase?\nEarly stage (beginning): - EXPLORATION dominates - Population is randomly initialized, spread across search space - High diversity means many different regions are being sampled - Selection pressure hasn’t yet concentrated the population - Mutations explore broadly from diverse starting points\nLate stage (end): - EXPLOITATION dominates - Population has converged toward promising region(s) - Most individuals are similar (low diversity) - Small mutations fine-tune solutions within local area - Selection maintains and refines good solutions - Risk of premature convergence if stuck in local optimum\nThe balance between exploration and exploitation is fundamental to EA design - too much exploration wastes effort on poor solutions, too much exploitation leads to premature convergence.\n\nsource: src/bjs/evolutionary_computation/chapter_3_what_is_an_ea.clj",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Exercises for Chapter Three: What is an EA?</span>"
+    ]
+  },
+  {
+    "objectID": "bjs.evolutionary_computation.chapter_4_representation_recombination_and_mutation.html",
+    "href": "bjs.evolutionary_computation.chapter_4_representation_recombination_and_mutation.html",
+    "title": "5  Exercises for Chapter Four: Representation, Recombination and Mutation",
+    "section": "",
+    "text": "5.1 1. A genetic algorithm has individuals coded as binary strings of length 27. Mutation is applied with a bit-wise probability of 1/27. What is the probability that the gene 17 is changed by mutation?\nhttp://www.evolutionarycomputation.org/exercises/exercises-for-chapter-four-representation-recombination-and-mutation/",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Exercises for Chapter Four: Representation, Recombination and Mutation</span>"
+    ]
+  },
+  {
+    "objectID": "bjs.evolutionary_computation.chapter_4_representation_recombination_and_mutation.html#a-genetic-algorithm-has-individuals-coded-as-binary-strings-of-length-27.-mutation-is-applied-with-a-bit-wise-probability-of-127.-what-is-the-probability-that-the-gene-17-is-changed-by-mutation",
+    "href": "bjs.evolutionary_computation.chapter_4_representation_recombination_and_mutation.html#a-genetic-algorithm-has-individuals-coded-as-binary-strings-of-length-27.-mutation-is-applied-with-a-bit-wise-probability-of-127.-what-is-the-probability-that-the-gene-17-is-changed-by-mutation",
+    "title": "5  Exercises for Chapter Four: Representation, Recombination and Mutation",
+    "section": "",
+    "text": "1/27\n26/27\n1/17\nIt is not possible to say without knowing what happens to the other genes\n\n\n5.1.1 Answer:\n\nsaying each gene is a bit in the string,\n‘bit-wise probability’ is applied per gene, independent of the others\nthe chance of any of the genes mutating is 1/27",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Exercises for Chapter Four: Representation, Recombination and Mutation</span>"
+    ]
+  },
+  {
+    "objectID": "bjs.evolutionary_computation.chapter_4_representation_recombination_and_mutation.html#a-number-of-onoff-switches-control-a-nuclear-power-plant-and-a-given-configuration-can-be-thought-of-as-a-state.-it-is-desired-to-search-the-space-of-possible-states-to-find-one-that-minimises-temperature-fluctuations-within-the-plant.-it-is-decided-to-do-this-with-a-genetic-algorithm.",
+    "href": "bjs.evolutionary_computation.chapter_4_representation_recombination_and_mutation.html#a-number-of-onoff-switches-control-a-nuclear-power-plant-and-a-given-configuration-can-be-thought-of-as-a-state.-it-is-desired-to-search-the-space-of-possible-states-to-find-one-that-minimises-temperature-fluctuations-within-the-plant.-it-is-decided-to-do-this-with-a-genetic-algorithm.",
+    "title": "5  Exercises for Chapter Four: Representation, Recombination and Mutation",
+    "section": "5.2 2. A number of on/off switches control a nuclear power plant, and a given configuration can be thought of as a state. It is desired to search the space of possible states to find one that minimises temperature fluctuations within the plant. It is decided to do this with a Genetic algorithm.",
+    "text": "5.2 2. A number of on/off switches control a nuclear power plant, and a given configuration can be thought of as a state. It is desired to search the space of possible states to find one that minimises temperature fluctuations within the plant. It is decided to do this with a Genetic algorithm.\nWhat representation do you think would be most suitable for this problem if there are n switches?\n\nA string of n binary values.\nA vector of n floating point numbers.\nA string of values each coming from the set {1,…,n}\nA tree with n terminal nodes (leaves).\n\n\n5.2.1 Answer:\nA string of n binary values is the natural choice.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Exercises for Chapter Four: Representation, Recombination and Mutation</span>"
+    ]
+  },
+  {
+    "objectID": "bjs.evolutionary_computation.chapter_4_representation_recombination_and_mutation.html#for-which-of-the-following-types-of-problem-representation-would-it-not-be-suitable-to-use-2-point-crossover",
+    "href": "bjs.evolutionary_computation.chapter_4_representation_recombination_and_mutation.html#for-which-of-the-following-types-of-problem-representation-would-it-not-be-suitable-to-use-2-point-crossover",
+    "title": "5  Exercises for Chapter Four: Representation, Recombination and Mutation",
+    "section": "5.3 3. For which of the following types of problem representation would it not be suitable to use 2-point crossover?",
+    "text": "5.3 3. For which of the following types of problem representation would it not be suitable to use 2-point crossover?\n\nA permutation representing the order in which a series of operations are performed in an operating theatre.\nA binary string.\nA sequence of integers representing moves from the set {left, right, ahead}.\nA vector of floating-point numbers representing angles within a design problem.\n\n\n5.3.1 Answer:\n2 point crossover makes sense for all of them except the first with the ordering.\nSay\nindividuals:\n[ a, b, c, d ] [ d, a, b, c ]\nThen crossover (doesn’t matter if 2 point).\n[ a ] || [ b, c, d ]\n         ^\n         |\n         v\n[ d ] || [ a, b, c ]\n=&gt; [ d, b, c, d ] // ❌ invalid individual because the same symbol appears multiple times.\nWhich of the following offspring can not be created by one point crossover from two parents 000000 and 111111 ?\n111111 000000 111000 110011 011110 001111\n111111 ❌ 000000 ❌ 111000 ❌ 110011 ✔ 011110 ✔ 001111 ❌\nSince it is 2 point crossover, both ends will come from the same individual. With a ‘middle piece’ coming from the other individual.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Exercises for Chapter Four: Representation, Recombination and Mutation</span>"
+    ]
+  },
+  {
+    "objectID": "bjs.evolutionary_computation.chapter_4_representation_recombination_and_mutation.html#a-mountain-bike-designer-is-trying-to-create-a-frame-with-certain-desirable-characteristics-under-simulation.-to-do-this-they-must-specify-a-set-of-n-tube-lengths-and-m-angles-between-them.-what-representation-do-you-think-would-be-most-suitable-for-this-problem",
+    "href": "bjs.evolutionary_computation.chapter_4_representation_recombination_and_mutation.html#a-mountain-bike-designer-is-trying-to-create-a-frame-with-certain-desirable-characteristics-under-simulation.-to-do-this-they-must-specify-a-set-of-n-tube-lengths-and-m-angles-between-them.-what-representation-do-you-think-would-be-most-suitable-for-this-problem",
+    "title": "5  Exercises for Chapter Four: Representation, Recombination and Mutation",
+    "section": "5.4 4. A mountain bike designer is trying to create a frame with certain desirable characteristics under simulation. To do this they must specify a set of n tube lengths and m angles between them. What representation do you think would be most suitable for this problem?",
+    "text": "5.4 4. A mountain bike designer is trying to create a frame with certain desirable characteristics under simulation. To do this they must specify a set of n tube lengths and m angles between them. What representation do you think would be most suitable for this problem?\n\nA string of (n+m) binary values.\nA string of n values each between 1 and m.\nA vector of (n+m) floating point numbers.\nA permutation of the numbers 1 through to (n+m)\nA tree with (n+m) terminal nodes (leaves).\n\n\n5.4.1 Answer:\nThey all don’t make any sense except a vector of (n+m) floating point numbers.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Exercises for Chapter Four: Representation, Recombination and Mutation</span>"
+    ]
+  },
+  {
+    "objectID": "bjs.evolutionary_computation.chapter_4_representation_recombination_and_mutation.html#it-is-necessary-to-schedule-a-set-of-appointments-with-a-doctor-so-as-to-minimise-the-average-waiting-time-per-patient.-there-are-n-patients.-what-representation-do-you-think-would-be-most-suitable-for-this-problem",
+    "href": "bjs.evolutionary_computation.chapter_4_representation_recombination_and_mutation.html#it-is-necessary-to-schedule-a-set-of-appointments-with-a-doctor-so-as-to-minimise-the-average-waiting-time-per-patient.-there-are-n-patients.-what-representation-do-you-think-would-be-most-suitable-for-this-problem",
+    "title": "5  Exercises for Chapter Four: Representation, Recombination and Mutation",
+    "section": "5.5 5. It is necessary to schedule a set of appointments with a doctor so as to minimise the average waiting time per patient. There are n patients. What representation do you think would be most suitable for this problem?",
+    "text": "5.5 5. It is necessary to schedule a set of appointments with a doctor so as to minimise the average waiting time per patient. There are n patients. What representation do you think would be most suitable for this problem?\n\nA string of n binary values.\nA vector of n floating point numbers.\nA string of values, each coming from the set 1 to n.\nA permutation of the numbers 1 to n.\nA tree with n terminal nodes (leaves).\n\n\n5.5.1 Answer:\nThis is an ordering problem and a permutation representing the ordering is the most suitable.\nThe problem only makes sense if the patient appointments take varying amount of time. Then, it is very similiar to a knapsack problem with value being constantly 1.\n\nsource: src/bjs/evolutionary_computation/chapter_4_representation_recombination_and_mutation.clj",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Exercises for Chapter Four: Representation, Recombination and Mutation</span>"
     ]
   }
 ]

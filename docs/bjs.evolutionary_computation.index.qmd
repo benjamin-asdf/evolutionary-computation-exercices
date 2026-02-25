@@ -29,25 +29,6 @@ code-block-background: true
 Exercises and notes from studying evolutionary computation.
 
 
-## Chapters
-
-- [Chapter 2: EC Origins](bjs.evolutionary_computation.chapter_2_origins.html)
-
-
-::: {.sourceClojure}
-```clojure
-(comment
-  (require '[scicloj.clay.v2.api :as clay])
-  ;; Build index
-  (clay/make! {:source-path "src/bjs/evolutionary_computation/index.clj"})
-  ;; Build all notebooks
-  (clay/make! {:source-path ["src/bjs/evolutionary_computation/index.clj"
-                             "src/bjs/evolutionary_computation/chapter_2_origins.clj"]}))
-```
-:::
-
-
-
 ```{=html}
 <div style="background-color:grey;height:2px;width:100%;"></div>
 ```

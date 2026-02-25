@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Evolutionary Computation – Evolutionary Computation Exercises</title>
+<title>5&nbsp; Exercises for Chapter Four: Representation, Recombination and Mutation – Evolutionary Computation Exercises</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./bjs.evolutionary_computation.chapter_2_origins.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./bjs.evolutionary_computation.chapter_3_what_is_an_ea.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -118,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./bjs.evolutionary_computation.index.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Evolutionary Computation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./bjs.evolutionary_computation.chapter_4_representation_recombination_and_mutation.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exercises for Chapter Four: Representation, Recombination and Mutation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -151,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bjs.evolutionary_computation.index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./bjs.evolutionary_computation.index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Evolutionary Computation</span></span></a>
   </div>
 </li>
@@ -169,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bjs.evolutionary_computation.chapter_4_representation_recombination_and_mutation.html" class="sidebar-item-text sidebar-link">
+  <a href="./bjs.evolutionary_computation.chapter_4_representation_recombination_and_mutation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exercises for Chapter Four: Representation, Recombination and Mutation</span></span></a>
   </div>
 </li>
@@ -178,15 +177,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#a-genetic-algorithm-has-individuals-coded-as-binary-strings-of-length-27.-mutation-is-applied-with-a-bit-wise-probability-of-127.-what-is-the-probability-that-the-gene-17-is-changed-by-mutation" id="toc-a-genetic-algorithm-has-individuals-coded-as-binary-strings-of-length-27.-mutation-is-applied-with-a-bit-wise-probability-of-127.-what-is-the-probability-that-the-gene-17-is-changed-by-mutation" class="nav-link active" data-scroll-target="#a-genetic-algorithm-has-individuals-coded-as-binary-strings-of-length-27.-mutation-is-applied-with-a-bit-wise-probability-of-127.-what-is-the-probability-that-the-gene-17-is-changed-by-mutation"><span class="header-section-number">5.1</span> 1. A genetic algorithm has individuals coded as binary strings of length 27. Mutation is applied with a bit-wise probability of 1/27. What is the probability that the gene 17 is changed by mutation?</a>
+  <ul>
+  <li><a href="#answer" id="toc-answer" class="nav-link" data-scroll-target="#answer"><span class="header-section-number">5.1.1</span> Answer:</a></li>
+  </ul></li>
+  <li><a href="#a-number-of-onoff-switches-control-a-nuclear-power-plant-and-a-given-configuration-can-be-thought-of-as-a-state.-it-is-desired-to-search-the-space-of-possible-states-to-find-one-that-minimises-temperature-fluctuations-within-the-plant.-it-is-decided-to-do-this-with-a-genetic-algorithm." id="toc-a-number-of-onoff-switches-control-a-nuclear-power-plant-and-a-given-configuration-can-be-thought-of-as-a-state.-it-is-desired-to-search-the-space-of-possible-states-to-find-one-that-minimises-temperature-fluctuations-within-the-plant.-it-is-decided-to-do-this-with-a-genetic-algorithm." class="nav-link" data-scroll-target="#a-number-of-onoff-switches-control-a-nuclear-power-plant-and-a-given-configuration-can-be-thought-of-as-a-state.-it-is-desired-to-search-the-space-of-possible-states-to-find-one-that-minimises-temperature-fluctuations-within-the-plant.-it-is-decided-to-do-this-with-a-genetic-algorithm."><span class="header-section-number">5.2</span> 2. A number of on/off switches control a nuclear power plant, and a given configuration can be thought of as a state. It is desired to search the space of possible states to find one that minimises temperature fluctuations within the plant. It is decided to do this with a Genetic algorithm.</a>
+  <ul>
+  <li><a href="#answer-1" id="toc-answer-1" class="nav-link" data-scroll-target="#answer-1"><span class="header-section-number">5.2.1</span> Answer:</a></li>
+  </ul></li>
+  <li><a href="#for-which-of-the-following-types-of-problem-representation-would-it-not-be-suitable-to-use-2-point-crossover" id="toc-for-which-of-the-following-types-of-problem-representation-would-it-not-be-suitable-to-use-2-point-crossover" class="nav-link" data-scroll-target="#for-which-of-the-following-types-of-problem-representation-would-it-not-be-suitable-to-use-2-point-crossover"><span class="header-section-number">5.3</span> 3. For which of the following types of problem representation would it not be suitable to use 2-point crossover?</a>
+  <ul>
+  <li><a href="#answer-2" id="toc-answer-2" class="nav-link" data-scroll-target="#answer-2"><span class="header-section-number">5.3.1</span> Answer:</a></li>
+  </ul></li>
+  <li><a href="#a-mountain-bike-designer-is-trying-to-create-a-frame-with-certain-desirable-characteristics-under-simulation.-to-do-this-they-must-specify-a-set-of-n-tube-lengths-and-m-angles-between-them.-what-representation-do-you-think-would-be-most-suitable-for-this-problem" id="toc-a-mountain-bike-designer-is-trying-to-create-a-frame-with-certain-desirable-characteristics-under-simulation.-to-do-this-they-must-specify-a-set-of-n-tube-lengths-and-m-angles-between-them.-what-representation-do-you-think-would-be-most-suitable-for-this-problem" class="nav-link" data-scroll-target="#a-mountain-bike-designer-is-trying-to-create-a-frame-with-certain-desirable-characteristics-under-simulation.-to-do-this-they-must-specify-a-set-of-n-tube-lengths-and-m-angles-between-them.-what-representation-do-you-think-would-be-most-suitable-for-this-problem"><span class="header-section-number">5.4</span> 4. A mountain bike designer is trying to create a frame with certain desirable characteristics under simulation. To do this they must specify a set of n tube lengths and m angles between them. What representation do you think would be most suitable for this problem?</a>
+  <ul>
+  <li><a href="#answer-3" id="toc-answer-3" class="nav-link" data-scroll-target="#answer-3"><span class="header-section-number">5.4.1</span> Answer:</a></li>
+  </ul></li>
+  <li><a href="#it-is-necessary-to-schedule-a-set-of-appointments-with-a-doctor-so-as-to-minimise-the-average-waiting-time-per-patient.-there-are-n-patients.-what-representation-do-you-think-would-be-most-suitable-for-this-problem" id="toc-it-is-necessary-to-schedule-a-set-of-appointments-with-a-doctor-so-as-to-minimise-the-average-waiting-time-per-patient.-there-are-n-patients.-what-representation-do-you-think-would-be-most-suitable-for-this-problem" class="nav-link" data-scroll-target="#it-is-necessary-to-schedule-a-set-of-appointments-with-a-doctor-so-as-to-minimise-the-average-waiting-time-per-patient.-there-are-n-patients.-what-representation-do-you-think-would-be-most-suitable-for-this-problem"><span class="header-section-number">5.5</span> 5. It is necessary to schedule a set of appointments with a doctor so as to minimise the average waiting time per patient. There are n patients. What representation do you think would be most suitable for this problem?</a>
+  <ul>
+  <li><a href="#answer-4" id="toc-answer-4" class="nav-link" data-scroll-target="#answer-4"><span class="header-section-number">5.5.1</span> Answer:</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Evolutionary Computation</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exercises for Chapter Four: Representation, Recombination and Mutation</span></h1>
 </div>
 
 
@@ -213,17 +237,103 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 .clay-side-by-side .sourceCode {margin: 0}
 .clay-side-by-side {margin: 1em 0}
 </style>
-<script src="bjs.evolutionary_computation.index_files/md-default0.js" type="text/javascript"></script>
-<script src="bjs.evolutionary_computation.index_files/md-default1.js" type="text/javascript"></script>
+<script src="bjs.evolutionary_computation.chapter_4_representation_recombination_and_mutation_files/md-default0.js" type="text/javascript"></script>
+<script src="bjs.evolutionary_computation.chapter_4_representation_recombination_and_mutation_files/md-default1.js" type="text/javascript"></script>
 <div class="sourceClojure">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode clojure code-with-copy"><code class="sourceCode clojure"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">ns</span> bjs.evolutionary-computation.<span class="kw">index</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  (<span class="at">:require</span> [scicloj.kindly.v4.kind <span class="at">:as</span> kind]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode clojure code-with-copy"><code class="sourceCode clojure"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">ns</span> bjs.evolutionary-computation.chapter<span class="dv">-4</span>-representation-recombination-and-mutation)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Exercises and notes from studying evolutionary computation.</p>
+<p>http://www.evolutionarycomputation.org/exercises/exercises-for-chapter-four-representation-recombination-and-mutation/</p>
+<section id="a-genetic-algorithm-has-individuals-coded-as-binary-strings-of-length-27.-mutation-is-applied-with-a-bit-wise-probability-of-127.-what-is-the-probability-that-the-gene-17-is-changed-by-mutation" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="a-genetic-algorithm-has-individuals-coded-as-binary-strings-of-length-27.-mutation-is-applied-with-a-bit-wise-probability-of-127.-what-is-the-probability-that-the-gene-17-is-changed-by-mutation"><span class="header-section-number">5.1</span> 1. A genetic algorithm has individuals coded as binary strings of length 27. Mutation is applied with a bit-wise probability of 1/27. What is the probability that the gene 17 is changed by mutation?</h2>
+<ul>
+<li>1/27</li>
+<li>26/27</li>
+<li>1/17</li>
+<li>It is not possible to say without knowing what happens to the other genes</li>
+</ul>
+<section id="answer" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="answer"><span class="header-section-number">5.1.1</span> Answer:</h3>
+<ul>
+<li>saying each gene is a bit in the string,</li>
+<li>‘bit-wise probability’ is applied per gene, independent of the others</li>
+<li>the chance of any of the genes mutating is 1/27</li>
+</ul>
+</section>
+</section>
+<section id="a-number-of-onoff-switches-control-a-nuclear-power-plant-and-a-given-configuration-can-be-thought-of-as-a-state.-it-is-desired-to-search-the-space-of-possible-states-to-find-one-that-minimises-temperature-fluctuations-within-the-plant.-it-is-decided-to-do-this-with-a-genetic-algorithm." class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="a-number-of-onoff-switches-control-a-nuclear-power-plant-and-a-given-configuration-can-be-thought-of-as-a-state.-it-is-desired-to-search-the-space-of-possible-states-to-find-one-that-minimises-temperature-fluctuations-within-the-plant.-it-is-decided-to-do-this-with-a-genetic-algorithm."><span class="header-section-number">5.2</span> 2. A number of on/off switches control a nuclear power plant, and a given configuration can be thought of as a state. It is desired to search the space of possible states to find one that minimises temperature fluctuations within the plant. It is decided to do this with a Genetic algorithm.</h2>
+<p>What representation do you think would be most suitable for this problem if there are n switches?</p>
+<ul>
+<li>A string of n binary values.</li>
+<li>A vector of n floating point numbers.</li>
+<li>A string of values each coming from the set {1,…,n}</li>
+<li>A tree with n terminal nodes (leaves).</li>
+</ul>
+<section id="answer-1" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="answer-1"><span class="header-section-number">5.2.1</span> Answer:</h3>
+<p>A string of n binary values is the natural choice.</p>
+</section>
+</section>
+<section id="for-which-of-the-following-types-of-problem-representation-would-it-not-be-suitable-to-use-2-point-crossover" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="for-which-of-the-following-types-of-problem-representation-would-it-not-be-suitable-to-use-2-point-crossover"><span class="header-section-number">5.3</span> 3. For which of the following types of problem representation would it not be suitable to use 2-point crossover?</h2>
+<ul>
+<li>A permutation representing the order in which a series of operations are performed in an operating theatre.</li>
+<li>A binary string.</li>
+<li>A sequence of integers representing moves from the set {left, right, ahead}.</li>
+<li>A vector of floating-point numbers representing angles within a design problem.</li>
+</ul>
+<section id="answer-2" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="answer-2"><span class="header-section-number">5.3.1</span> Answer:</h3>
+<p>2 point crossover makes sense for all of them except the first with the ordering.</p>
+<p>Say</p>
+<p>individuals:</p>
+<p>[ a, b, c, d ] [ d, a, b, c ]</p>
+<p>Then crossover (doesn’t matter if 2 point).</p>
+<p>[ a ] || [ b, c, d ]</p>
+<pre><code>         ^
+         |
+         v</code></pre>
+<p>[ d ] || [ a, b, c ]</p>
+<p>=&gt; [ d, b, c, d ] // ❌ invalid individual because the same symbol appears multiple times.</p>
+<p>Which of the following offspring can not be created by one point crossover from two parents 000000 and 111111 ?</p>
+<p>111111 000000 111000 110011 011110 001111</p>
+<p>111111 ❌ 000000 ❌ 111000 ❌ 110011 ✔ 011110 ✔ 001111 ❌</p>
+<p>Since it is 2 point crossover, both ends will come from the same individual. With a ‘middle piece’ coming from the other individual.</p>
+</section>
+</section>
+<section id="a-mountain-bike-designer-is-trying-to-create-a-frame-with-certain-desirable-characteristics-under-simulation.-to-do-this-they-must-specify-a-set-of-n-tube-lengths-and-m-angles-between-them.-what-representation-do-you-think-would-be-most-suitable-for-this-problem" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="a-mountain-bike-designer-is-trying-to-create-a-frame-with-certain-desirable-characteristics-under-simulation.-to-do-this-they-must-specify-a-set-of-n-tube-lengths-and-m-angles-between-them.-what-representation-do-you-think-would-be-most-suitable-for-this-problem"><span class="header-section-number">5.4</span> 4. A mountain bike designer is trying to create a frame with certain desirable characteristics under simulation. To do this they must specify a set of n tube lengths and m angles between them. What representation do you think would be most suitable for this problem?</h2>
+<ul>
+<li>A string of (n+m) binary values.</li>
+<li>A string of n values each between 1 and m.</li>
+<li>A vector of (n+m) floating point numbers.</li>
+<li>A permutation of the numbers 1 through to (n+m)</li>
+<li>A tree with (n+m) terminal nodes (leaves).</li>
+</ul>
+<section id="answer-3" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="answer-3"><span class="header-section-number">5.4.1</span> Answer:</h3>
+<p>They all don’t make any sense except a vector of (n+m) floating point numbers.</p>
+</section>
+</section>
+<section id="it-is-necessary-to-schedule-a-set-of-appointments-with-a-doctor-so-as-to-minimise-the-average-waiting-time-per-patient.-there-are-n-patients.-what-representation-do-you-think-would-be-most-suitable-for-this-problem" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="it-is-necessary-to-schedule-a-set-of-appointments-with-a-doctor-so-as-to-minimise-the-average-waiting-time-per-patient.-there-are-n-patients.-what-representation-do-you-think-would-be-most-suitable-for-this-problem"><span class="header-section-number">5.5</span> 5. It is necessary to schedule a set of appointments with a doctor so as to minimise the average waiting time per patient. There are n patients. What representation do you think would be most suitable for this problem?</h2>
+<ul>
+<li>A string of n binary values.</li>
+<li>A vector of n floating point numbers.</li>
+<li>A string of values, each coming from the set 1 to n.</li>
+<li>A permutation of the numbers 1 to n.</li>
+<li>A tree with n terminal nodes (leaves).</li>
+</ul>
+<section id="answer-4" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="answer-4"><span class="header-section-number">5.5.1</span> Answer:</h3>
+<p>This is an ordering problem and a permutation representing the ordering is the most suitable.</p>
+<p>The problem only makes sense if the patient appointments take varying amount of time. Then, it is very similiar to a knapsack problem with value being constantly 1.</p>
 <div style="background-color:grey;height:2px;width:100%;"></div>
-<div><pre><small><small>source: src/bjs/evolutionary_computation/index.clj</small></small></pre></div>
+<div><pre><small><small>source: src/bjs/evolutionary_computation/chapter_4_representation_recombination_and_mutation.clj</small></small></pre></div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -628,14 +738,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Evolutionary Computation Exercises">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Evolutionary Computation Exercises</span></span>
+      <a href="./bjs.evolutionary_computation.chapter_3_what_is_an_ea.html" class="pagination-link" aria-label="Exercises for Chapter Three: What is an EA?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Exercises for Chapter Three: What is an EA?</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./bjs.evolutionary_computation.chapter_2_origins.html" class="pagination-link" aria-label="Exercises for Chapter Two: EC Origins">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Exercises for Chapter Two: EC Origins</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
